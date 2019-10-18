@@ -63,8 +63,8 @@ jobs:
 
       - run:
           name: start Xvfb for phantomjs test
-          command: Xvfb :99
-          background: true
+          # command: Xvfb :99
+          # background: true
 
       - run:
           name: bats tests
