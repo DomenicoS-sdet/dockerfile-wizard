@@ -13,7 +13,7 @@ image_config: &image_config
   # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
   # to the `test_image` job (line 55)
 
-  LINUX_VERSION: UBUNTU_XENIAL
+  LINUX_VERSION: DEBIAN_STRETCH
 
   # # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
 
@@ -21,15 +21,15 @@ image_config: &image_config
 
   PYTHON_VERSION_NUM: 3.7.0
 
-  JAVA: true
+  JAVA: false
 
   MYSQL_CLIENT: false
 
   POSTGRES_CLIENT: false
 
-  DOCKERIZE: true
+  DOCKERIZE: false
 
-  BROWSERS: true
+  BROWSERS: false
 
 version: 2
 jobs:
