@@ -47,7 +47,7 @@ jobs:
 
       - run: docker build -t docker-automation-framework:automation .
 
-      - run: docker tag docker-automation-framework:automation eu.gcr.io/vnet-core/docker-automation-framework:$IMAGE_TAG
+      - run: docker tag docker-automation-framework:automation eu.gcr.io/vnet-core/docker-automation-framework:automation
 
       - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework:automation && sleep 10
 
