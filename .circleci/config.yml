@@ -49,7 +49,7 @@ jobs:
 
       - run: docker tag $IMAGE_NAME:$IMAGE_TAG eu.gcr.io/vnet-core/docker-automation-framework:$IMAGE_TAG
 
-      - run: docker push eu.gcr.io/vnet-core/$IMAGE_NAME:$IMAGE_TAG && sleep 10
+      - run: docker push eu.gcr.io/vnet-core/circleci/$IMAGE_NAME:$IMAGE_TAG && sleep 10
 
       - store_artifacts:
           path: Dockerfile
