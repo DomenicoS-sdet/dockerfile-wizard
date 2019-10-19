@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: docker-automation-framework
 
-  IMAGE_TAG: automation
+  IMAGE_TAG: latest
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -45,18 +45,18 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: docker build -t docker-automation-framework:automation .
+      - run: docker build -t eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest .
 
-      - run: docker tag docker-automation-framework:automation eu.gcr.io/vnet-core/docker-automation-framework:automation
+      #- run: docker tag docker-automation-framework:latest eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest
 
-      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework:automation && sleep 10
+      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest && sleep 10
 
       - store_artifacts:
           path: Dockerfile
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/docker-automation-framework:automation
+      - image: $DOCKER_USERNAME/docker-automation-framework:latest
         environment:
           <<: *image_config
 
