@@ -45,11 +45,11 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: docker build -t $IMAGE_NAME:$IMAGE_TAG .
+      - run: docker build -t docker-automation-framework:automation .
 
-      - run: docker tag $IMAGE_NAME:$IMAGE_TAG eu.gcr.io/vnet-core/docker-automation-framework:$IMAGE_TAG
+      - run: docker tag docker-automation-framework:automation eu.gcr.io/vnet-core/docker-automation-framework:$IMAGE_TAG
 
-      - run: docker push eu.gcr.io/vnet-core/circleci/$IMAGE_NAME:$IMAGE_TAG && sleep 10
+      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework:automation && sleep 10
 
       - store_artifacts:
           path: Dockerfile
