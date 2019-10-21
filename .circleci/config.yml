@@ -45,11 +45,9 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: docker build .
+      - run: docker build --tag eu.gcr.io/vnet-core/docker-automation-framework .
 
-      - run: docker tag docker-automation-framework eu.gcr.io/vnet-core/circleci/docker-automation-framework
-
-      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework && sleep 10
+      - run: docker push eu.gcr.io/vnet-core/docker-automation-framework && sleep 10
 
       - store_artifacts:
           path: Dockerfile
