@@ -45,7 +45,7 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: docker build -t eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest .
+      - run: docker build -t eu.gcr.io/vnet-core/circleci/docker-automation-framework .
 
       - run: docker tag docker-automation-framework eu.gcr.io/vnet-core/circleci/docker-automation-framework
 
