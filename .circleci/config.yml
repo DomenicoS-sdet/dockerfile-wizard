@@ -47,9 +47,9 @@ jobs:
 
       - run: docker build -t eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest .
 
-      #- run: docker tag docker-automation-framework:latest eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest
+      - run: docker tag docker-automation-framework eu.gcr.io/vnet-core/circleci/docker-automation-framework
 
-      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework:latest && sleep 10
+      - run: docker push eu.gcr.io/vnet-core/circleci/docker-automation-framework && sleep 10
 
       - store_artifacts:
           path: Dockerfile
