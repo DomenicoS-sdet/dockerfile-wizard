@@ -46,9 +46,9 @@ jobs:
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - run:
-        name: Make sure the latest components are install_headers
-        command: |
-          gcloud --quiet components update
+          name: Make sure the latest components are install_headers
+          command: |
+            gcloud --quiet components update
 
       - run:
           name: Autenticate to Container Registry
