@@ -49,10 +49,10 @@ jobs:
           name: Provision Google Cloud project-specific account credentials
           command: |
             # Convert, compute, and dump environment variable content into file
-            # export GOOGLE_PROJECT_CONVERTED=$(echo "${GOOGLE_PROJECT_NAME}" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
-            # export GCP_PROJECT_SPECIFIC_ENVIRONMENT_VARIABLE_NAME="GOOGLE_CREDENTIALS_${GOOGLE_PROJECT_CONVERTED}"
+            export GOOGLE_PROJECT_CONVERTED=$(echo "${GOOGLE_PROJECT_NAME}" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+            export GCP_PROJECT_SPECIFIC_ENVIRONMENT_VARIABLE_NAME="GOOGLE_CREDENTIALS_${GOOGLE_PROJECT_CONVERTED}"
             printf '%s\n' "${GOOGLE_CREDENTIALS_PE_PROD}" > "${HOME}/service-account.json"
-            
+
       - run: docker build --tag eu.gcr.io/vnet-core/docker-automation-framework .
 
       - run: docker push eu.gcr.io/vnet-core/docker-automation-framework && sleep 10
