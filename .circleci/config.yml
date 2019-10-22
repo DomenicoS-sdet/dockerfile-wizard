@@ -45,7 +45,10 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: gcloud auth configure-docker
+      - run:
+          name: Auth GCP Container Registry
+          command: |
+            echo $vnet_core_gcp_service_account | docker login --username _json_key --password-stdin https://eu.gcr.io
 
       - run: docker build --tag eu.gcr.io/vnet-core/circleci/docker-automation-framework .
 
