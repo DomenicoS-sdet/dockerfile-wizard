@@ -32,6 +32,17 @@ image_config: &image_config
   BROWSERS: false
 
 version: 2
+commands:
+  provision_gcp_iam_service_accounts:
+    description: "Provisions Google Cloud project-specific service account credentials"
+    steps:
+      - run:
+          name: Provision Google Cloud project-specific account credentials
+          command: |
+            # Convert, compute, and dump environment variable content into file
+            # export GOOGLE_PROJECT_CONVERTED=$(echo "${GOOGLE_PROJECT_NAME}" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+            # export GCP_PROJECT_SPECIFIC_ENVIRONMENT_VARIABLE_NAME="GOOGLE_CREDENTIALS_${GOOGLE_PROJECT_CONVERTED}"
+            printf '%s\n' "${GOOGLE_CREDENTIALS_PE_PROD}" > "${HOME}/service-account.json"
 jobs:
   build:
     machine: true
