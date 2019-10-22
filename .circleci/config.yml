@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Make sure the latest components are install_headers
           command: |
-            gcloud --quiet components update
+            sudo gcloud --quiet components update
 
       - run:
           name: Autenticate to Container Registry
