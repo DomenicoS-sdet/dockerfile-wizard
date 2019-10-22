@@ -41,11 +41,14 @@ jobs:
     steps:
       - checkout
 
-      - gcloud auth configure-docker
-
       - run: bash scripts/generate.sh > Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - run:
+          name: Auth GCP Container Registry
+          command: |
+            echo $vnet_core_gcp_service_account | docker login --username _json_key --password-stdin https://eu.gcr.io
 
       - run: docker build --tag eu.gcr.io/vnet-core/docker-automation-framework .
 
