@@ -8,12 +8,13 @@ jobs:
     docker:
       - image: eu.gcr.io/vnet-core/circleci/python-base:latest
     steps:
-      - checkout
-
       - run:
           name: Auth GCP Container Registry
           command: |
             echo $vnet_core_gcp_service_account | docker login --username _json_key --password-stdin https://eu.gcr.io
+
+      - checkout
+
       - run:
           name: Build image
           command: |
