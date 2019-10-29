@@ -5,7 +5,8 @@
 version: 2
 jobs:
   build_image:
-
+    docker:
+      - image: eu.gcr.io/vnet-core/circleci/python-base:latest
     steps:
       - checkout
 
